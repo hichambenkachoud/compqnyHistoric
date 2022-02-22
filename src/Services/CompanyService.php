@@ -52,7 +52,7 @@ class CompanyService
             $newAdd = new Address();
             $newAdd->setCity($address->getCity());
             $newAdd->setChannelName($address->getChannelName());
-            $newAdd->setChannelType($address->getChannelName());
+            $newAdd->setChannelType($address->getChannelType());
             $newAdd->setNumber($address->getNumber());
             $newAdd->setPostalCode($address->getPostalCode());
             $history->addAddress($newAdd);
