@@ -14,11 +14,51 @@ class AddressType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('number', NumberType::class)
-            ->add('channelType', TextType::class)
-            ->add('channelName', TextType::class)
-            ->add('city', TextType::class)
-            ->add('postalCode', NumberType::class)
+            ->add('number', NumberType::class, [
+                'row_attr' => [
+                    'class' => 'form-group'
+                ],
+                'attr' => [
+                    'class' => 'col-4 form-control'
+                ],
+                'required' => true
+            ])
+            ->add('channelType', TextType::class, [
+                'row_attr' => [
+                    'class' => 'form-group'
+                ],
+                'attr' => [
+                    'class' => 'col-4 form-control'
+                ],
+                'required' => true
+            ])
+            ->add('channelName', TextType::class, [
+                'row_attr' => [
+                    'class' => 'form-group'
+                ],
+                'attr' => [
+                    'class' => 'col-4 form-control'
+                ],
+                'required' => true
+            ])
+            ->add('city', TextType::class, [
+                'row_attr' => [
+                    'class' => 'form-group'
+                ],
+                'attr' => [
+                    'class' => 'form-control'
+                ],
+                'required' => true
+            ])
+            ->add('postalCode', NumberType::class, [
+                'row_attr' => [
+                    'class' => 'form-group'
+                ],
+                'attr' => [
+                    'class' => 'col-4 form-control'
+                ],
+                'required' => true
+            ])
         ;
     }
 

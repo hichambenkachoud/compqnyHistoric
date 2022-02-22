@@ -37,7 +37,8 @@ class CompanyHistoricType extends AbstractType
                 'allow_add' => true,
                 'allow_delete' => true,
                 'prototype' => true,
-                'required' => true
+                'required' => true,
+                'by_reference' => false
             ])
         ;
     }
