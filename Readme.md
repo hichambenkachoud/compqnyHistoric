@@ -1,6 +1,6 @@
 - Clone the project:
   
-        git clone
+        git clone https://github.com/hichambenkachoud/compqnyHistoric.git
 - Install dependencies:
   
         comoser install
