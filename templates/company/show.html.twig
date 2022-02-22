@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid mt-5">
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">Company Information</span>
+            </div>
+            <div class="container mb-5 mt-3">
+                <form name="search" id="search" action="">
+                    <input type="datetime-local" name="date" id="date" step="1" required
+                           value="{{ app.request.query.get('date') }}"/>
+                    <input type="submit" value="search">
+                </form>
+
+            </div>
+            {% if company is not null %}
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="mb-2">
+                                Name : {{ company.name }}
+                            </div>
+                            <div class="mb-2">
+                                Siren : {{ company.company.siren }}
+                            </div>
+                            <div class="mb-2">
+                                registrationCity : {{ company.registrationCity }}
+                            </div>
+                            <div class="mb-2">
+                                registrationDate : {{ company.registrationDate | date }}
+                            </div>
+                            <div class="mb-2">
+                                capital : {{ company.capital }}
+                            </div>
+                            <div class="mb-2">
+                                legalStatus : {{ company.legalStatus.name }}
+                            </div>
+                            <div class="mb-2">
+                                updatedDate : {{ company.updatedDate | date }}
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="mb-5">Addresses</div>
+                            <div class="mb-2">
+                                <ul class="address row" id="address">
+                                    {% for index, Add in company.addresses %}
+                                        <li>
+                                            {{ index + 1 }} - {{ Add.number }} {{ Add.channelType }} {{ Add.channelName }}, {{ Add.city }} {{ Add.postalCode }}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="{{ path('company_update', {'id' : company.company.id}) }}" class="btn btn-primary">Update</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}
